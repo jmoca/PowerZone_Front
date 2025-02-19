@@ -1,0 +1,89 @@
+<ion-content (ionScroll)="onScroll($event)">
+    <div class="contenido_perfil ion-no-padding" [class.hidden]="isHeaderHidden">
+        <ion-grid style="margin-top: 5%">
+            <!-- Avatar row -->
+            <ion-row class="movil" style="justify-content: center; margin-bottom: 10px">
+                <ion-col style="display: flex; align-items: center">
+                    <ion-avatar>
+                        <img alt="Imagen perfil" [src]="profile.avatar "/>
+                    </ion-avatar>
+                    <ion-text style="padding-left: 7%">{{ profile.nickname || profile.name }}</ion-text>
+                </ion-col>
+            </ion-row>
+
+            <!-- Stats row -->
+            <ion-row class="stats">
+                <ion-col>
+                    <div class="text-center">
+                        <ion-text class="info_num">{{ profile.followers }}</ion-text>
+                        <ion-text>Seguidores</ion-text>
+                    </div>
+                </ion-col>
+                <ion-col>
+                    <div class="text-center">
+                        <ion-text class="info_num">{{ profile.following }}</ion-text>
+                        <ion-text>Seguidos</ion-text>
+                    </div>
+                </ion-col>
+                <ion-col>
+                    <div class="text-center">
+                        <ion-text class="info_num">{{ posts.length }}</ion-text>
+                        <ion-text>Publicaciones</ion-text>
+                    </div>
+                </ion-col>
+            </ion-row>
+
+            <!-- Follow/Message Buttons -->
+            <ion-row style="margin: 2% 5%">
+                <ion-col size="5">
+                    <div *ngIf="showButton">
+                        <ion-button (click)="toggleFollow()">
+                            <ion-icon style="margin-right: 5%"
+                                      [name]="isFollowing ? 'person-remove-outline' : 'person-add-outline'"></ion-icon>
+                            {{ isFollowing ? 'Dejar de seguir' : 'Seguir' }}
+                        </ion-button>
+                    </div>
+                    <div *ngIf="!showButton">
+                        <ion-button (click)="navigateTo('/post-save')">
+                            <ion-icon style="margin-right: 5%" name="bookmark"></ion-icon>
+                            Post guardados
+                        </ion-button>
+                    </div>
+
+                </ion-col>
+                <ion-col size="2"></ion-col>
+                <ion-col size="5">
+                    <ion-button *ngIf="isOwnProfile; else sendMessage" (click)="navigateTo('/settings')">
+                        Ajustes del perfil
+                        <ion-icon style="margin-left: 5%; margin-right: 4.5%" name="settings-outline" slot="start"></ion-icon>
+                    </ion-button>
+                    <ng-template #sendMessage>
+                        <ion-button (click)="navigateTo('/mensajes')">
+                            Enviar un mensaje
+                            <ion-icon style="margin-left: 5%" name="send-sharp"></ion-icon>
+                        </ion-button>
+                    </ng-template>
+                </ion-col>
+
+            </ion-row>
+        </ion-grid>
+    </div>
+
+    <div *ngIf="posts.length === 0" class="no-posts">
+        <p>Este usuario no tiene publicaciones.</p>
+    </div>
+
+    <!-- Imagenes del grid -->
+    <div class="image-grid" *ngIf="postImages.length > 0">
+        <img *ngFor="let image of postImages; let i = index"
+             (click)="navigateToPost(profile.id)"
+             [src]="image || 'https://picsum.photos/200/300?random=2'"
+             alt="Imagen {{ i }}"/>
+    </div>
+
+
+    <!-- Infinite Scroll -->
+    <ion-infinite-scroll (ionInfinite)="onIonInfinite($event)">
+        <ion-infinite-scroll-content></ion-infinite-scroll-content>
+    </ion-infinite-scroll>
+</ion-content>

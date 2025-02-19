@@ -1,0 +1,35 @@
+<body>
+<ion-grid class="ion-no-padding" id="sugerencias">
+    <ion-row>
+        <ion-col class="content-column">
+            <ion-img src="assets/icon/Logo.png" (click)="screenAdmin()"></ion-img>
+        </ion-col>
+    </ion-row>
+    <ion-row>
+        <ion-col>
+            <h6>Sugerencias</h6>
+        </ion-col>
+    </ion-row>
+    <ion-row>
+        <ion-col>
+          <ion-item lines="none" *ngFor="let profile of profiles" (click)="navigateToProfile(profile.id)">
+              <ion-avatar aria-hidden="true" slot="start">
+                  <img alt="" src="{{ profile.avatar }}" />
+              </ion-avatar>
+              <ion-label>{{ profile.nickname }}</ion-label>
+              <ion-button *ngIf="!profile.seguido" slot="end" (click)="followUser(profile); $event.stopPropagation()">
+                  <ion-icon name="person-add-outline"></ion-icon>
+                  Seguir
+              </ion-button>
+              <ion-button *ngIf="profile.seguido" slot="end" (click)="unfollowUser(profile); $event.stopPropagation()">
+                  <ion-icon name="person-remove-outline"></ion-icon>
+                  Dejar de seguir
+              </ion-button>
+          </ion-item>
+
+        </ion-col>
+    </ion-row>
+</ion-grid>
+
+
+</body>

@@ -1,0 +1,125 @@
+<ion-app>
+    <!-- Menú lateral fijo para pantallas grandes -->
+    <ion-grid class="ion-no-padding" style="height: 100%; width: 100%;">
+        <ion-row style="height: 100%;">
+            <ion-col
+                *ngIf="menuVisible"
+                size="3"
+                class="menuizq-column ion-no-padding"
+                style="height: 100%;"
+            >
+                <app-menu *ngIf="useAlternateMenu"></app-menu>
+                <app-menuoriginal *ngIf="!useAlternateMenu"></app-menuoriginal>
+            </ion-col>
+
+            <!-- Contenido principal -->
+            <ion-col
+                class="ion-no-padding content-column"
+                style="height: 100%;">
+                <div class="ion-page" id="main-content">
+                    <ion-header *ngIf="headerVisible">
+                        <ion-toolbar [style.--background]="isChatRoute ? '#272727FF' : 'transparent'">
+                            <ion-buttons slot="start">
+                                <!-- Botón de menú hamburguesa solo en pantallas pequeñas -->
+                                <ion-menu-button *ngIf="!menuVisible"></ion-menu-button>
+                            </ion-buttons>
+                            <ion-title>PowerZone</ion-title>
+                        </ion-toolbar>
+
+
+                    </ion-header>
+                    <ion-content fullscreen>
+                        <ion-router-outlet></ion-router-outlet>
+                    </ion-content>
+                </div>
+            </ion-col>
+
+            <!-- Sugerencias -->
+            <ion-col
+                *ngIf="suggestionsVisible"
+                size="3"
+                class="ion-no-padding"
+                style="height: 100%;"
+            >
+                <app-suggestions></app-suggestions>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+
+    <!-- Menú hamburguesa para pantallas pequeñas -->
+    <ion-menu *ngIf="!menuVisible" contentId="main-content" side="start" type="overlay">
+        <ion-header>
+            <ion-toolbar>
+                <ion-title>Menú</ion-title>
+            </ion-toolbar>
+        </ion-header>
+        <ion-content>
+            <ion-list>
+                <ion-item id="home">
+                    <a style="color: white; text-decoration: none;" href="/posts">
+                        <ion-icon name="home" slot="start"></ion-icon>
+                        Inicio
+                    </a>
+                </ion-item>
+
+                <ion-item>
+                    <a style="color: white; text-decoration: none;" href="/search">
+                        <ion-icon name="search" slot="start"></ion-icon>
+                        Buscar
+                    </a>
+                </ion-item>
+
+                <ion-item>
+                    <a style="color: white; text-decoration: none;" (click)="openAddPostModal()">
+                        <ion-icon name="add" slot="start"></ion-icon>
+                        Añadir Post
+                    </a>
+                </ion-item>
+
+                <ion-item>
+                    <a style="color: white; text-decoration: none;" href="/mensajes">
+                        <ion-icon name="paper-plane-outline" aria-hidden="true" slot="start"></ion-icon>
+                        Mensajes
+                    </a>
+                </ion-item>
+
+                <ion-item>
+                    <a style="color: white; text-decoration: none;" href="/health">
+                      <ion-icon name="logo-ionitron" aria-hidden="true" slot="start"></ion-icon>
+                        ChatBot
+                    </a>
+                </ion-item>
+
+                <ion-item>
+                    <a style="color: white; text-decoration: none;" href="/notification">
+                        <ion-icon name="notifications" slot="start"></ion-icon>
+                        Notificaciones
+                    </a>
+                </ion-item>
+
+                <ion-item>
+                    <a style="color: white; text-decoration: none;" href="/profile">
+                        <ion-icon name="person-circle-outline" slot="start"></ion-icon>
+                        Perfil
+                    </a>
+                </ion-item>
+
+              <ion-item>
+                <a style="color: white; text-decoration: none;" href="/settings">
+                  <ion-icon name="settings-sharp" slot="start"></ion-icon>
+                  Ajustes del perfil
+                </a>
+              </ion-item>
+
+                <ion-item>
+                    <a style="color: white; text-decoration: none;" (click)="logOut()">
+                        <ion-icon name="log-in-outline" slot="start"></ion-icon>
+                        Cerrar Sesión
+                    </a>
+                </ion-item>
+
+            </ion-list>
+        </ion-content>
+    </ion-menu>
+    <app-footer *ngIf="footerVisible"></app-footer>
+</ion-app>

@@ -1,0 +1,22 @@
+<ion-content>
+    <div class="barra">
+        <ion-icon name="search"></ion-icon>
+        <ion-input
+            [(ngModel)]="searchText"
+            (ionInput)="onSearchChange()"
+            type="text"
+            placeholder="Buscar...">
+        </ion-input>
+    </div>
+
+    <ion-list>
+        <ion-list-header>Resultados</ion-list-header>
+        <!-- Mostrar los resultados de búsqueda dinámicamente -->
+        <ion-item *ngFor="let user of users" lines="none" style="--background: transparent;" (click)="navigateToProfile(user.id)">
+            <ion-avatar>
+                <img [src]="user.avatar || 'https://picsum.photos/200/300?random=1'" />
+            </ion-avatar>
+            <ion-label style="color: white;">{{ user.nickname }}</ion-label>
+        </ion-item>
+    </ion-list>
+</ion-content>
