@@ -33,8 +33,7 @@ export class WebsocketServiceNotification {
     }
 
     private connect(roomId: number) {
-
-        const webSocketUrl = `ws://localhost:8080/ws-native`; // URL del servidor WebSocket nativo
+        const webSocketUrl = `wss://powerzone-back-2scf.onrender.com/ws-native`; // Updated URL of the WebSocket server
         this.stompClient = new Client({
             webSocketFactory: () => new WebSocket(webSocketUrl),
             reconnectDelay: 5000,

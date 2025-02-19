@@ -4,24 +4,26 @@ import {Observable} from 'rxjs';
 import {Register} from '../Models/Register';
 import {Login} from '../Models/Login';
 import {ProfileTotal} from "../Models/ProfileTotal";
+import {environment} from "../../environments/environment";
 
 @Injectable({
     providedIn: 'root'
 })
 export class RegistroService {
+    private apiUrl = `${environment.apiUrl}/auth`;
     constructor(private http: HttpClient) { }
 
     registerUser(user: Register): Observable<any> {
-        return this.http.post<any>('/api/auth/create', user);
+        return this.http.post<any>(`${this.apiUrl}/create`, user);
     }
 
     login(login: Login): Observable<any> {
-        return this.http.post<any>('/api/auth/login', login);
+        return this.http.post<any>(`${this.apiUrl}/login`, login);
     }
 
     isBanned(token: string): Observable<any> {
         const headers = new HttpHeaders({ Authorization: token });
-        return this.http.get<any>('/api/auth/isBanned', { headers });
+        return this.http.get<any>(`${this.apiUrl}/isBanned`, { headers });
     }
 
 
@@ -31,7 +33,7 @@ export class RegistroService {
     providedIn: 'root'
 })
 export class ProfileService {
-    private baseUrl = '/api/profile'; // Proxy configurado
+    private baseUrl = `${environment.apiUrl}/profile`; // Proxy configurado
 
     constructor(private http: HttpClient) {}
 
