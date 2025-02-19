@@ -1,15 +1,15 @@
-import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Observable } from 'rxjs';
-import { Comment } from '../Models/Comment';
-import { CommentDetails } from '../Models/CommentDetails';
-import { environment } from '../../environments/environment';
+import {Injectable} from '@angular/core';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
+import {Observable} from 'rxjs';
+import {Comment} from '../Models/Comment';
+import {CommentDetails} from "../Models/CommentDetails";
+
 
 @Injectable({
     providedIn: 'root'
 })
 export class CommentService {
-    private apiUrl = `${environment.apiUrl}/post`;
+    private apiUrl = '/api/comment';
 
     constructor(private http: HttpClient) {}
 
@@ -18,10 +18,9 @@ export class CommentService {
             'Authorization': `Bearer ${token}`,
         });
     }
-
     getCommentsByPostId(token: string, postId: number): Observable<CommentDetails[]> {
-        return this.http.get<CommentDetails[]>(`${this.apiUrl}/${postId}/comments`, {
-            headers: this.getHeaders(token)
+        return this.http.get<CommentDetails[]>(`/api/post/${postId}/comments`, {
+            headers: { Authorization: `Bearer ${token}` }
         });
     }
 
@@ -30,7 +29,9 @@ export class CommentService {
         return this.http.post<Comment>(`${this.apiUrl}/create`, comment, { headers: this.getHeaders(token) });
     }
 
+
     deleteComment(token: string, comment: Comment): Observable<void> {
         return this.http.request<void>('delete', `${this.apiUrl}/delete`, { body: comment, headers: this.getHeaders(token) });
     }
+
 }

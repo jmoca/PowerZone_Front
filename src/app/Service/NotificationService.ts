@@ -3,13 +3,12 @@ import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Observable} from 'rxjs';
 
 import {MegaNotification} from "../Models/MegaNotification";
-import {environment} from "../../environments/environment";
 
 @Injectable({
     providedIn: 'root'
 })
 export class NotificationService {
-    private apiUrl = `${environment.apiUrl}/notification`;
+    private apiUrl = '/api/notification';
     private token = sessionStorage.getItem('token');
 
     constructor(private http: HttpClient) {
