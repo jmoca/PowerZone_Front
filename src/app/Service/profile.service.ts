@@ -1,66 +1,42 @@
-import {Injectable} from '@angular/core';
-import {HttpClient, HttpHeaders} from '@angular/common/http';
-import {Observable} from 'rxjs';
-import {Register} from '../Models/Register';
-import {Login} from '../Models/Login';
-import {ProfileTotal} from "../Models/ProfileTotal";
+import { Injectable } from '@angular/core';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Observable } from 'rxjs';
+import { ProfileSetting } from '../Models/ProfileSetting';
+import { environment } from '../../environments/environment';
 
 @Injectable({
     providedIn: 'root'
 })
-export class RegistroService {
-    constructor(private http: HttpClient) { }
+export class ProfileSettingsService {
+    private apiUrl = `${environment.apiUrl}/profile`;
 
-    registerUser(user: Register): Observable<any> {
-        return this.http.post<any>('/api/auth/create', user);
+    constructor(private httpClient: HttpClient) { }
+
+    private getHeaders(token: string): HttpHeaders {
+        return new HttpHeaders().set('Authorization', `Bearer ${token}`);
     }
 
-    login(login: Login): Observable<any> {
-        return this.http.post<any>('/api/auth/login', login);
+    getData(token: string): Observable<ProfileSetting> {
+        return this.httpClient.post<ProfileSetting>(`${this.apiUrl}/getData`, {}, { headers: this.getHeaders(token) });
     }
 
-    isBanned(token: string): Observable<any> {
-        const headers = new HttpHeaders({ Authorization: token });
-        return this.http.get<any>('/api/auth/isBanned', { headers });
+    updateProfile(token: string, profile: ProfileSetting): Observable<any> {
+        return this.httpClient.post(`${this.apiUrl}/updateData`, profile, { headers: this.getHeaders(token) });
     }
 
-
-}
-
-@Injectable({
-    providedIn: 'root'
-})
-export class ProfileService {
-    private baseUrl = '/api/profile'; // Proxy configurado
-
-    constructor(private http: HttpClient) {}
-
-    getProfile(token: string): Observable<any> {
-        const headers = new HttpHeaders({ Authorization: token });
-        return this.http.post<any>(`${this.baseUrl}/getData`, {}, { headers });
+    getProfileById(id: string): Observable<ProfileSetting> {
+        return this.httpClient.get<ProfileSetting>(`${this.apiUrl}/${id}`);
     }
 
-    updateProfile(profile: any, token: string): Observable<any> {
-        const headers = new HttpHeaders({ Authorization: token });
-        return this.http.put<any>(`${this.baseUrl}/updateData`, profile, { headers });
+    followUser(token: string, userId: number, followUserId: number): Observable<string> {
+        return this.httpClient.post<string>(`${this.apiUrl}/${userId}/follow/${followUserId}`, {}, { headers: this.getHeaders(token) });
     }
 
-    searchProfiles(query: string): Observable<any[]> {
-        return this.http.get<any[]>(`${this.baseUrl}/search?query=${query}`);
+    unfollowUser(token: string, userId: number, unfollowUserId: number): Observable<string> {
+        return this.httpClient.post<string>(`${this.apiUrl}/${userId}/unfollow/${unfollowUserId}`, {}, { headers: this.getHeaders(token) });
     }
 
-    searchProfilesById(id: string): Observable<any[]> {
-        return this.http.get<any[]>(`${this.baseUrl}/${id}`);
-    }
-
-    isAdmin() {
-      const headers = new HttpHeaders().set('Authorization', `Bearer ${sessionStorage.getItem('token')}`);
-      return this.http.get<boolean>('/api/auth/ImAdmin', {headers})
-    }
-
-    getRecomendations() {
-      const headers = new HttpHeaders().set('Authorization', `Bearer ${sessionStorage.getItem('token')}`);
-      return this.http.get<ProfileTotal[]>('/api/profile/recommended', {headers})
+    isFollowing(token: string, userId: number, followUserId: number): Observable<boolean> {
+        return this.httpClient.get<boolean>(`${this.apiUrl}/${userId}/isFollowing/${followUserId}`, { headers: this.getHeaders(token) });
     }
 }
-

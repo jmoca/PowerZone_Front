@@ -1,42 +1,42 @@
-import {Injectable} from '@angular/core';
-import {HttpClient, HttpHeaders} from '@angular/common/http';
-import {Observable} from 'rxjs';
-import {ProfileSetting} from "../Models/ProfileSetting";
+import { Injectable } from '@angular/core';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Observable } from 'rxjs';
+import { ProfileSetting } from '../Models/ProfileSetting';
+import { environment } from '../../environments/environment';
 
 @Injectable({
     providedIn: 'root'
 })
 export class ProfileSettingsService {
+    private apiUrl = `${environment.apiUrl}/profile`;
 
     constructor(private httpClient: HttpClient) { }
 
+    private getHeaders(token: string): HttpHeaders {
+        return new HttpHeaders().set('Authorization', `Bearer ${token}`);
+    }
+
     getData(token: string): Observable<ProfileSetting> {
-        const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
-        return this.httpClient.post<ProfileSetting>('/api/profile/getData', {}, { headers });
+        return this.httpClient.post<ProfileSetting>(`${this.apiUrl}/getData`, {}, { headers: this.getHeaders(token) });
     }
 
     updateProfile(token: string, profile: ProfileSetting): Observable<any> {
-        const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
-        return this.httpClient.post('/api/profile/updateData', profile, { headers });
+        return this.httpClient.post(`${this.apiUrl}/updateData`, profile, { headers: this.getHeaders(token) });
     }
 
-    getProfileById(id: string) {
-        return this.httpClient.get<ProfileSetting>(`/api/profile/${id}`);
+    getProfileById(id: string): Observable<ProfileSetting> {
+        return this.httpClient.get<ProfileSetting>(`${this.apiUrl}/${id}`);
     }
+
     followUser(token: string, userId: number, followUserId: number): Observable<string> {
-        const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
-        return this.httpClient.post<string>(`/api/profile/${userId}/follow/${followUserId}`, {}, { headers });
+        return this.httpClient.post<string>(`${this.apiUrl}/${userId}/follow/${followUserId}`, {}, { headers: this.getHeaders(token) });
     }
 
     unfollowUser(token: string, userId: number, unfollowUserId: number): Observable<string> {
-        const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
-        return this.httpClient.post<string>(`/api/profile/${userId}/unfollow/${unfollowUserId}`, {}, { headers });
+        return this.httpClient.post<string>(`${this.apiUrl}/${userId}/unfollow/${unfollowUserId}`, {}, { headers: this.getHeaders(token) });
     }
 
     isFollowing(token: string, userId: number, followUserId: number): Observable<boolean> {
-        const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
-        return this.httpClient.get<boolean>(`/api/profile/${userId}/isFollowing/${followUserId}`, { headers });
+        return this.httpClient.get<boolean>(`${this.apiUrl}/${userId}/isFollowing/${followUserId}`, { headers: this.getHeaders(token) });
     }
-
-
 }

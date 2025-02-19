@@ -3,12 +3,13 @@ import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {Post} from '../Models/Post';
 import {PostDto} from '../Models/PostDto';
+import {environment} from "../../environments/environment";
 
 @Injectable({
     providedIn: 'root'
 })
 export class PostService {
-    private apiUrl = '/api/post';
+    private apiUrl = `${environment.apiUrl}/post`;
 
     constructor(private http: HttpClient) {}
 
