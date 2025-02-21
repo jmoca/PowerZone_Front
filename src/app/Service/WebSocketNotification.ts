@@ -5,6 +5,7 @@ import {ChatMessage} from '../Models/ChatMessage';
 import {ProfileService} from "./profile.service";
 import {ProfileTotal} from "../Models/ProfileTotal";
 import {MegaNotification} from "../Models/MegaNotification";
+import {environment} from "../../environments/environment.prod";
 
 @Injectable({
     providedIn: 'root',
@@ -33,7 +34,8 @@ export class WebsocketServiceNotification {
     }
 
     private connect(roomId: number) {
-        const webSocketUrl = `wss://powerzone-back-2scf.onrender.com/ws-native`; // Updated URL of the WebSocket server
+
+        const webSocketUrl = environment.apiUrl + `/ws-native`; // URL del servidor WebSocket nativo
         this.stompClient = new Client({
             webSocketFactory: () => new WebSocket(webSocketUrl),
             reconnectDelay: 5000,

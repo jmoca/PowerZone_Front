@@ -4,26 +4,25 @@ import {Observable} from 'rxjs';
 import {Register} from '../Models/Register';
 import {Login} from '../Models/Login';
 import {ProfileTotal} from "../Models/ProfileTotal";
-import {environment} from "../../environments/environment";
+import {environment} from "../../environments/environment.prod";
 
 @Injectable({
     providedIn: 'root'
 })
 export class RegistroService {
-    private apiUrl = `${environment.apiUrl}/auth`;
     constructor(private http: HttpClient) { }
 
     registerUser(user: Register): Observable<any> {
-        return this.http.post<any>(`${this.apiUrl}/create`, user);
+        return this.http.post<any>(environment.apiUrl + '/auth/create', user);
     }
 
     login(login: Login): Observable<any> {
-        return this.http.post<any>(`${this.apiUrl}/login`, login);
+        return this.http.post<any>(environment.apiUrl + '/auth/login', login);
     }
 
     isBanned(token: string): Observable<any> {
         const headers = new HttpHeaders({ Authorization: token });
-        return this.http.get<any>(`${this.apiUrl}/isBanned`, { headers });
+        return this.http.get<any>(environment.apiUrl + '/auth/isBanned', { headers });
     }
 
 
@@ -33,7 +32,7 @@ export class RegistroService {
     providedIn: 'root'
 })
 export class ProfileService {
-    private baseUrl = `${environment.apiUrl}/profile`; // Proxy configurado
+    private baseUrl = environment.apiUrl + '/profile'; // Proxy configurado
 
     constructor(private http: HttpClient) {}
 
@@ -57,12 +56,12 @@ export class ProfileService {
 
     isAdmin() {
       const headers = new HttpHeaders().set('Authorization', `Bearer ${sessionStorage.getItem('token')}`);
-      return this.http.get<boolean>('/api/auth/ImAdmin', {headers})
+      return this.http.get<boolean>(environment.apiUrl + '/auth/ImAdmin', {headers})
     }
 
     getRecomendations() {
       const headers = new HttpHeaders().set('Authorization', `Bearer ${sessionStorage.getItem('token')}`);
-      return this.http.get<ProfileTotal[]>('/api/profile/recommended', {headers})
+      return this.http.get<ProfileTotal[]>(environment.apiUrl + '/profile/recommended', {headers})
     }
 }
 
