@@ -3,22 +3,22 @@ import {
 } from "./chunk-2JTE6DJZ.js";
 import {
   SuggestionsComponent
-} from "./chunk-ANZN7MSA.js";
-import "./chunk-ZOYFHXJS.js";
+} from "./chunk-XEFH7DCV.js";
+import "./chunk-Z233NFIF.js";
 import {
   Menu,
   MenuoriginalComponent
-} from "./chunk-7YHOTJBX.js";
-import "./chunk-WXZ57UEK.js";
+} from "./chunk-5IJZEC7B.js";
+import "./chunk-IDV7EZ7D.js";
 import {
   ToastController,
   provideIonicAngular
 } from "./chunk-ED5SIT5L.js";
 import {
   NewPostComponent
-} from "./chunk-4MP3BENS.js";
-import "./chunk-VJ2VXSVT.js";
-import "./chunk-RUKA25WZ.js";
+} from "./chunk-WV2SIDCP.js";
+import "./chunk-IK76A6XB.js";
+import "./chunk-77HXCZAV.js";
 import {
   add,
   addCircle,
@@ -38,10 +38,7 @@ import {
 } from "./chunk-U7I4M26G.js";
 import {
   ProfileService
-} from "./chunk-5CGNTBAX.js";
-import {
-  environment
-} from "./chunk-QELDN44A.js";
+} from "./chunk-FQYQIARY.js";
 import {
   IonApp,
   IonAvatar,
@@ -66,8 +63,9 @@ import {
   IonToolbar,
   IonicModule,
   ModalController,
-  TextValueAccessorDirective
-} from "./chunk-QY6UERJP.js";
+  TextValueAccessorDirective,
+  environment
+} from "./chunk-AZ27F32N.js";
 import "./chunk-IRNVB6F3.js";
 import {
   ActivatedRoute,
@@ -312,40 +310,36 @@ var routes = [
   },
   {
     path: "registro",
-    loadComponent: () => import("./registro.component-BPHRKJRX.js").then((m) => m.RegistroComponent)
+    loadComponent: () => import("./registro.component-VXOL7H24.js").then((m) => m.RegistroComponent)
   },
   {
     path: "login",
-    loadComponent: () => import("./login.component-DT52A3V2.js").then((m) => m.LoginComponent)
+    loadComponent: () => import("./login.component-7IXRI73C.js").then((m) => m.LoginComponent)
   },
   {
     path: "posts",
-    loadComponent: () => import("./posts.component-6UOLXC72.js").then((m) => m.PostsComponent)
+    loadComponent: () => import("./posts.component-YUHO4NRJ.js").then((m) => m.PostsComponent)
   },
   {
     path: "notification",
-    loadComponent: () => import("./notification.component-5YH36SZL.js").then((m) => m.NotificationComponent)
+    loadComponent: () => import("./notification.component-HI7VUSA4.js").then((m) => m.NotificationComponent)
   },
   {
     path: "profile/:id",
-    loadComponent: () => import("./profile.component-BUGUE2AL.js").then((m) => m.ProfileComponent)
+    loadComponent: () => import("./profile.component-NFOLH3RU.js").then((m) => m.ProfileComponent)
   },
   {
     path: "profile",
-    loadComponent: () => import("./profile.component-BUGUE2AL.js").then((m) => m.ProfileComponent)
-  },
-  {
-    path: "chat",
-    loadComponent: () => import("./chat.component-NUHD6BZ6.js").then((m) => m.ChatComponent)
+    loadComponent: () => import("./profile.component-NFOLH3RU.js").then((m) => m.ProfileComponent)
   },
   {
     path: "menuoriginal",
-    loadComponent: () => import("./menuoriginal.component-JPN6A4JS.js").then((m) => m.MenuoriginalComponent),
+    loadComponent: () => import("./menuoriginal.component-Q2PW4FWQ.js").then((m) => m.MenuoriginalComponent),
     canActivate: [AuthGuard]
   },
   {
     path: "admin",
-    loadComponent: () => import("./admin.component-7BQFZIKL.js").then((m) => m.AdminComponent)
+    loadComponent: () => import("./admin.component-2U67DNLY.js").then((m) => m.AdminComponent)
   },
   {
     path: "search",
@@ -354,45 +348,41 @@ var routes = [
   },
   {
     path: "settings",
-    loadComponent: () => import("./settings.component-UXG675D6.js").then((m) => m.SettingsComponent)
+    loadComponent: () => import("./settings.component-Y52HUXXG.js").then((m) => m.SettingsComponent)
   },
   {
     path: "health",
-    loadComponent: () => import("./health.component-OL2B7IHZ.js").then((m) => m.HealthComponent)
+    loadComponent: () => import("./health.component-XK54TBM7.js").then((m) => m.HealthComponent)
   },
   {
     path: "recu",
-    loadComponent: () => import("./recuperacion-previa.component-VJ2VAR4B.js").then((m) => m.RecuperacionPreviaComponent)
+    loadComponent: () => import("./recuperacion-previa.component-IV6V5NYO.js").then((m) => m.RecuperacionPreviaComponent)
   },
   {
     path: "post-save",
-    loadComponent: () => import("./post-save.component-CFIDEMKA.js").then((m) => m.PostSaveComponent)
+    loadComponent: () => import("./post-save.component-NCVBJRZQ.js").then((m) => m.PostSaveComponent)
   },
   {
     path: "post-details/:id",
-    loadComponent: () => import("./post-details.component-YIDHP7MI.js").then((m) => m.PostDetailsComponent),
+    loadComponent: () => import("./post-details.component-TCBWK55M.js").then((m) => m.PostDetailsComponent),
     canActivate: [AuthGuard]
   },
   {
     path: "posts-user/:id",
-    loadComponent: () => import("./posts-user.component-KZ2DNN55.js").then((m) => m.PostsUserComponent)
+    loadComponent: () => import("./posts-user.component-UZQQKTPS.js").then((m) => m.PostsUserComponent)
   },
   {
-    path: "prueba/:groupId",
-    loadComponent: () => import("./rafaparaelchat.component-ZSGJHP4B.js").then((m) => m.RafaparaelchatComponent)
+    path: "chat/:groupId",
+    loadComponent: () => import("./rafaparaelchat.component-M6LQIIS6.js").then((m) => m.RafaparaelchatComponent)
   },
   {
     path: "mensajes",
-    loadComponent: () => import("./mensajes.component-UKETQSOX.js").then((m) => m.MensajesComponent)
+    loadComponent: () => import("./mensajes.component-YRKCM7YW.js").then((m) => m.MensajesComponent)
   },
   {
     path: "suggestion",
-    loadComponent: () => import("./suggestions.component-7WLBT6RE.js").then((m) => m.SuggestionsComponent),
+    loadComponent: () => import("./suggestions.component-5RLW3COH.js").then((m) => m.SuggestionsComponent),
     canActivate: [AuthGuard]
-  },
-  {
-    path: "prueba/:groupId",
-    loadComponent: () => import("./rafaparaelchat.component-ZSGJHP4B.js").then((m) => m.RafaparaelchatComponent)
   }
 ];
 
@@ -840,7 +830,7 @@ var _AppComponent = class _AppComponent {
   notification(meganotification) {
     switch (meganotification.type) {
       case "MESSAGE":
-        if (this.router.url === "/prueba/" + meganotification.groupMessenger.grupouser.group.id) {
+        if (this.router.url === "/chat/" + meganotification.groupMessenger.grupouser.group.id) {
           break;
         }
         const mensaje = "Has recibido un mensaje de " + meganotification.emitter.nickName;
