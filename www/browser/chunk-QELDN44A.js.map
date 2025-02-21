@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["src/environments/environment.prod.ts"],
+  "sourcesContent": ["export const environment = {\r\n  production: true,\r\n    apiUrl:\"https://powerzone-back-2scf.onrender.com\",\r\n};\r\n"],
+  "mappings": ";AAAO,IAAM,cAAc;EACzB,YAAY;EACV,QAAO;;",
+  "names": []
+}
