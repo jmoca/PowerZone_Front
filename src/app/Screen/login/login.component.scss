@@ -1,5 +1,5 @@
 .Registrobody {
-  background-color: #042f2e; /* Fondo principal */
+  background-color: #0E0E16 ; /* Fondo principal */
   color: white; /* Color del texto por defecto */
   height: 100vh; /* Ocupa toda la altura de la pantalla */
   justify-content: center;
@@ -15,9 +15,12 @@
 }
 
 #onichan2 {
-  width: 90%; /* Adjust the width as needed */
+  margin-top: 2%;
+  margin-left: 25%;
+  width: 75%; /* Adjust the width as needed */
   height: 100%; /* Adjust the height as needed */
   display: flex;
+  border: 2px solid white;
   justify-content: center;
   align-items: center;
 }
@@ -38,12 +41,12 @@
 
 
 .Registrobody ion-item {
-  --background: #042f2e; /* Fondo del ion-item */
+  --background: #0E0E16; /* Fondo del ion-item */
   color: white; /* Texto en blanco */
 }
 
 .Registrobody ion-input {
-  --background: #042f2e; /* Fondo del input */
+  --background: #0E0E16; /* Fondo del input */
   color: white; /* Texto del input */
 }
 
@@ -52,12 +55,12 @@
 }
 
 .Registrobody ion-button {
-  --background: #68aecc; /* Fondo del botón */
+  --background: rgba(245, 204, 0, 0.48); /* Fondo del botón */
   --color: white; /* Texto del botón */
 }
 
 .subForm {
-  background-color: #042f2e; /* Fondo del formulario */
+  background-color: #0E0E16; /* Fondo del formulario */
   border: 1px solid white; /* Bordes */
   border-radius: 5px; /* Bordes redondeados */
   width: 60%; /* Ajusta el ancho según tus necesidades */
@@ -67,7 +70,7 @@
 }
 
 .subForm2 {
-  background-color: #042f2e; /* Fondo del formulario */
+  background-color: #0E0E16; /* Fondo del formulario */
   border: 1px solid white; /* Bordes */
   border-radius: 5px; /* Bordes redondeados */
   width: 100%; /* Ajusta el ancho según tus necesidades */
@@ -77,7 +80,7 @@
 }
 
 .subForm3 {
-  background-color: #042f2e; /* Fondo del formulario */
+  background-color: #0E0E16; /* Fondo del formulario */
   width: 100%; /* Ajusta el ancho según tus necesidades */
   margin-top: 3%; /* Agrega margen superior */
   padding: 1%; /* Agrega un poco de relleno interno */
@@ -115,7 +118,7 @@ ion-col:last-child {
         display: none;
     }
     .subForm {
-        background-color: #042f2e;
+        background-color: #0E0E16;
         border: 0;
         width: 100%;
         margin-top: 20px;

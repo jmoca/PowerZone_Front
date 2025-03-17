@@ -20,7 +20,7 @@
     height: 100%;
     max-width: 90%;
     margin: auto;
-    background: #0d2b2a;
+    background: #252533;
     border-radius: 15px;
     padding: 20px;
 }
@@ -90,7 +90,7 @@
 button {
     font-family: inherit;
     font-size: 20px;
-    background: #042F2E;
+    background: rgba(245, 204, 0, 0.82);
     color: white;
     padding: 0.7em 1em;
     padding-left: 0.9em;
@@ -175,7 +175,7 @@ button:active {
     gap: 8px; /* Adjust the gap between the icon and text as needed */
     font-size: 16px;
     color: white;
-    background: #042F2E;
+    background: rgba(245, 204, 0, 0.82);
     padding: 8px 12px;
     border-radius: 8px;
     border: none;
@@ -184,6 +184,6 @@ button:active {
 }
 
 .add-file-button:hover {
-    background: #042F2E;
+    background: rgba(245, 204, 0, 0.45);
 }
 

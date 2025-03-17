@@ -41,7 +41,7 @@ ion-avatar img {
 
 
 .contenido_perfil {
-    background-color: #042f2e;
+    background-color: #0E0E16;
     color: white;
     display: flex;
     align-self: center;
@@ -61,7 +61,7 @@ ion-input {
 }
 
 ion-button {
-    --background: #279e9c; /* Color verde del botón */
+    --background: #FFFFFF19; /* Color verde del botón */
     --color: white;
     margin-top: 20px; /* Espaciado superior */
     width: 100%; /* Botón ancho */
@@ -78,7 +78,7 @@ ion-row, ion-col {
 }
 
 ion-button {
-    --background: #279e9c; /* Color verde del botón */
+    --background: rgba(245, 204, 0, 0.82); /* Color verde del botón */
     --color: white;
     margin-top: 3%; /* Aumenta el espaciado superior */
     width: 60%; /* Reduce el ancho del botón */

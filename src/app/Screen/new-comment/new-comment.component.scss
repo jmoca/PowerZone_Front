@@ -20,7 +20,7 @@
     height: 100%;
     max-width: 90%;
     margin: auto;
-    background: #0d2b2a;
+    background: #0E0E16;
     border-radius: 15px;
     padding: 20px;
 }
@@ -54,7 +54,7 @@
 
 .icon-style {
     font-size: 28px;
-    color: #6fb3a6;
+    color: #f5cc00;
 }
 
 .textArea {
@@ -67,7 +67,7 @@
 }
 
 .publish-button {
-    background: linear-gradient(135deg, #6fb3a6, #42a5a3);
+    --background: rgba(245, 204, 0, 0.48);
     color: white;
     font-size: 18px;
     font-weight: bold;
@@ -92,7 +92,7 @@
     height: 50px; /* Increased height */
     border-radius: 40px;
     border: none;
-    background-color: rgb(4, 47, 46);
+    background-color: rgba(245, 204, 0, 0.48);;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -105,7 +105,7 @@
 .IconContainer {
     width: 40px; /* Increased width */
     height: 40px; /* Increased height */
-    background-color: rgb(7, 85, 83);
+    background-color: rgba(245, 204, 0, 0.48);;
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -173,7 +173,7 @@
     gap: 8px; /* Adjust the gap between the icon and text as needed */
     font-size: 16px;
     color: white;
-    background: #042F2E;
+    background: #0E0E16;
     padding: 8px 12px;
     border-radius: 8px;
     border: none;
@@ -182,5 +182,5 @@
 }
 
 .add-file-button:hover {
-    background: #042F2E;
+    background: #0E0E16;
 }

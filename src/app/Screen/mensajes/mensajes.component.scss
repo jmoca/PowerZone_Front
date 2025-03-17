@@ -1,14 +1,18 @@
 /* Animación para el fondo del ion-item al hacer hover */
 ion-item {
-    --background: #042f2e; /* Verde pastel */
+    --background: #252533; /* Verde pastel */
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     transition: all 0.3s ease; /* Animación suave en todos los cambios */
     margin: 2% 0;
 }
+div{
+    background-color: #0202e8;
+
+}
 
 ion-toolbar {
-    --background: #042f2e;
+    --background: #252533;
     --color: white;
     padding: 12px 20px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
@@ -32,7 +36,7 @@ ion-item:hover {
 
 /* Efecto hover para los botones */
 ion-button:hover {
-    --background: rgba(5, 90, 88, 0.1); /* Fondo suave al pasar el mouse */
+    --background: rgba(245, 204, 0, 0.48);; /* Fondo suave al pasar el mouse */
     transform: scale(1.02); /* Aumentar ligeramente el tamaño del botón */
     transition: all 0.3s ease; /* Animación suave */
 }
@@ -64,7 +68,7 @@ ion-modal {
 /* Animación para el botón "Crear nueva conversación" */
 #open-modal {
     --color: white; /* Color blanco para el texto */
-    --background: #042f2e; /* Verde claro */
+    --background: #252533; /* Verde claro */
     transition: background-color 0.3s ease; /* Transición suave de fondo */
 }
 
@@ -96,7 +100,7 @@ input[type="file"] {
 input[type="file"] + label {
     display: inline-block;
     padding: 10px 20px;
-    background-color: #042f2e; /* Color de fondo personalizado */
+    background-color: #252533; /* Color de fondo personalizado */
     color: white;
     border-radius: 8px;
     cursor: pointer;
@@ -110,6 +114,6 @@ input[type="file"]:hover + label {
 
 /* Estilo cuando se selecciona un archivo */
 input[type="file"]:valid + label {
-    background-color: #077a48; /* Verde cuando un archivo ha sido seleccionado */
+    background-color: rgba(255, 255, 255, 0.15); /* Verde cuando un archivo ha sido seleccionado */
     margin: 2%;
 }

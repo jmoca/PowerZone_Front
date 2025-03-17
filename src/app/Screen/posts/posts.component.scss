@@ -1,13 +1,13 @@
 :host {
   display: block;
-  background-color: #001f1f; /* Fondo más oscuro para contraste */
+  background-color: #0E0E16; /* Fondo más oscuro para contraste */
   color: white;
   padding: 10px;
 }
 
 ion-content {
-  --background: #001f1f;
-  background-color: #001f1f !important;
+  --background: #0E0E16;
+  background-color: #0E0E16 !important;
 }
 
 .post-container {
@@ -16,7 +16,7 @@ ion-content {
 }
 
 .post {
-  background-color: #0a4d4d; /* Verde oscuro para un look elegante */
+  background-color: #252533; /* Verde oscuro para un look elegante */
   border-radius: 15px;
   padding: 15px;
   margin-bottom: 15px;
@@ -43,8 +43,8 @@ ion-content {
   width: 100%;
   height: 300px; /* Ajusta la altura según lo que necesites */
   object-fit: contain; /* Mantiene toda la imagen visible sin recortes */
-  border: 4px solid #042F2E;
-  background-color: #042F2E; /* Fondo para las imágenes que no llenan el espacio */
+
+  background-color: #FFFFFF19; /* Fondo para las imágenes que no llenan el espacio */
 }
 
 .post-description {
@@ -75,14 +75,14 @@ ion-content {
 .highlighted-comment .comment-container {
   display: flex;
   align-items: center;
-  background-color: #013534;
+  background-color: rgba(42, 39, 39, 0.76);
   border-radius: 10px;
   padding: 10px;
   color: white;
 }
 
 .custom-fab-button {
-  --background: #00a896;
+  --background: #FFFFFF19;
   --color: white;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }
@@ -92,7 +92,7 @@ ion-content {
 }
 
 :host ::ng-deep .hashtag {
-  color: #00f5d4;
+  color: #f5cc00;
   font-weight: bold;
   cursor: pointer;
 }
@@ -121,7 +121,7 @@ ion-content::part(scroll)::-webkit-scrollbar {
 }
 
 .custom-fab-button {
-  --background: #013534;
+  --background: rgba(245, 204, 0, 0.48);
   --color: white;
 }
 
@@ -141,7 +141,7 @@ ion-content::part(scroll)::-webkit-scrollbar {
   text-align: right; // Align text to the right
 }
 ion-list {
-  background-color: #0a4d4d; /* Fondo oscuro */
+  background-color: #252533; /* Fondo oscuro */
   color: white; /* Texto blanco */
   border-radius: 10px; /* Bordes redondeados */
   display: flex;
@@ -154,7 +154,7 @@ ion-list {
 }
 
 ion-item {
-  --background: #0a4d4d; /* Fondo transparente */
+  --background: #252533; /* Fondo transparente */
   color: white; /* Color del texto */
   border-bottom: 1px solid white; /* Línea divisoria */
 }
@@ -174,7 +174,7 @@ ion-select::part(icon) {
   }
 }
 ion-searchbar {
-  --background: #0a4d4d;
+  --background: #252533;
   --border-color: white;
   --border-width: 0 0 2px 0;
   --border-radius: 15px;
@@ -187,7 +187,7 @@ ion-searchbar {
     position: sticky;
     top: 0;
     z-index: 1000;
-    background: #013534;
+    background: #000000;
     padding: 10px;
 }
 

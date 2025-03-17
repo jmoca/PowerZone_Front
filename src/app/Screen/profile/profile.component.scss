@@ -8,12 +8,12 @@
   position: sticky; /* Encabezado pegajoso en la parte superior */
   top: 0;
   z-index: 10; /* Asegura que el encabezado esté sobre el contenido */
-  background-color: #042f2e;
+  background-color: #0E0E16;
   transition: transform 0.3s ease-in-out; /* Suaviza el cambio de visibilidad */
 }
 ion-content {
   overflow-y: scroll; /* Mantén el desplazamiento vertical */
-  --background: #042f2e; /* Fondo del contenido */
+  --background: #0E0E16; /* Fondo del contenido */
   scrollbar-width: none; /* Ocultar scrollbar en navegadores compatibles */
 }
 
@@ -72,7 +72,7 @@ ion-item {
 }
 
 ion-button {
-  --background: #279e9c;
+  --background: rgba(245, 204, 0, 0.82);
   --color: white;
   margin-top: 20px;
   width: 100%;

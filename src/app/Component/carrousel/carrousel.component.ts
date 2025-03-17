@@ -8,10 +8,9 @@ import {Component, OnInit} from '@angular/core';
 })
 export class CarrouselComponent  implements OnInit {
  images: String[] = [
-    'assets/img/inicio.png',
-    'assets/img/rutinas.png',
-    'assets/img/ejercicios.png',
-    'assets/img/editar.png'
+    'assets/img/carru1.png',
+    'assets/img/carru2.png',
+    'assets/img/carru3.png'
    ];
 
  currentIndex = 0;
