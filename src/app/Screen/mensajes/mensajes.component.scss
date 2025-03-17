@@ -6,10 +6,10 @@ ion-item {
     transition: all 0.3s ease; /* Animación suave en todos los cambios */
     margin: 2% 0;
 }
-div{
-    background-color: #0202e8;
-
+ion-content {
+    --background: rgba(12, 12, 12, 0.82) !important;
 }
+
 
 ion-toolbar {
     --background: #252533;
@@ -36,7 +36,7 @@ ion-item:hover {
 
 /* Efecto hover para los botones */
 ion-button:hover {
-    --background: rgba(245, 204, 0, 0.48);; /* Fondo suave al pasar el mouse */
+    --background: rgba(245, 204, 0, 0.48); /* Fondo suave al pasar el mouse */
     transform: scale(1.02); /* Aumentar ligeramente el tamaño del botón */
     transition: all 0.3s ease; /* Animación suave */
 }
@@ -100,7 +100,7 @@ input[type="file"] {
 input[type="file"] + label {
     display: inline-block;
     padding: 10px 20px;
-    background-color: #252533; /* Color de fondo personalizado */
+    background-color: rgba(245, 204, 0, 0.48); /* Color de fondo personalizado */
     color: white;
     border-radius: 8px;
     cursor: pointer;
